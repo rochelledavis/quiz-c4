@@ -46,6 +46,10 @@ listItemEl.addEventListener("click", function(event) {
 
     if (answer.dataset.answer = "Correct!") {
         answer.innerHTML = answer.dataset.answer
+    } else (answer.dataset.answer = "Wrong!") {
+        answer.innerHTML = answer.dataset.answer
+    }
+
     }
 });
 
