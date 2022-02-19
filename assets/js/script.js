@@ -10,6 +10,8 @@ var timeLeft = 60;
 
 var finalScoreEl = document.querySelector('#finalScore')
 
+var highScores = JSON.parse(localStorage.getItem('finalScore')) || []
+
 
 //function put in place to allow timer to count down when start-quiz is clicked
 function setTimer() {
@@ -17,7 +19,7 @@ function setTimer() {
         timeLeft--;
         timerEl.textContent = "Time remaining: " + timeLeft;
 
-        if (timeLeft === 0) {
+        if (timeLeft === 0 || counter > 4) { 
             clearInterval(timerInterval);
             timerEl.innerHTML = "Time is up!"
             
@@ -45,26 +47,23 @@ function incrementQuestions() {
 
     if (counter <= 4) {
         displayQuestions()
-    } else {
-        endQuiz()
     }
     
+
 
 };
 
 //listens for a click to check for answer accuracy and displays whether the answer is right or wrong and decrements time by 10 if wrong
-document.querySelectorAll('.answer').forEach(item => {
-    item.addEventListener("click", event => {
+document.querySelectorAll('.answer').forEach(function(item) {
+    item.addEventListener("click", function(event) {
     //handle click
-        var answer = event.target;
-    console.log(answer)
-    if (answer.dataset.answer = "Correct!") {
-        answer.innerHTML = answer.dataset.answer
-    } else if (answer.dataset.answer = "Wrong!") {
-        answer.innerHTML = answer.dataset.answer
+    if (event.currentTarget.dataset.answer === "Correct!") {
+        event.currentTarget.innerHTML = event.currentTarget.dataset.answer
+    } else if (event.currentTarget.dataset.answer === "Wrong!") {
+        event.currentTarget.innerHTML = event.currentTarget.dataset.answer
         timeLeft = timeLeft - 10;
     }
-    incrementQuestions()
+    setTimeout(incrementQuestions, 2000)
     });
   })
 
@@ -75,17 +74,36 @@ function endQuiz() {
 
     if (timeLeft > 0) {
         clearInterval(timeLeft)
-    }
+    };
 
-    var finalScore = timeLeft
+    var finalScore = timeLeft;
     document.getElementById('question5').style.display = "none"
     finalScoreEl.style.display = "block"
 
     document.getElementById('insertFinalScore').innerHTML = "Your final score is: " + finalScore
 
+    document.getElementById('submit-score').addEventListener("click", function() {
+        //if statement to require intials be added 
+        if (!document.getElementById("initials").value) {
+            return
+        }
+        saveScore()
+        document.location.href = 'highscore.html'
+    })
+
+    
+
 };
 
+function saveScore() {
+    console.log(highScores)
+    var finalScore = {
+        initials: document.getElementById("initials").value,
+        score: timeLeft 
+    }
+    highScores.push(finalScore)
+    console.log(highScores)
 
+    localStorage.setItem("finalScore", JSON.stringify(highScores));
 
-//click listener on all answers and will determine correctness based on data attribute
-//if answer is wrong, decrement time by 10
+}
