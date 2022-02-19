@@ -78,12 +78,14 @@ function endQuiz() {
     }
 
     var finalScore = timeLeft
-    questions.style.display = "none"
+    document.getElementById('question5').style.display = "none"
     finalScoreEl.style.display = "block"
+
+    document.getElementById('insertFinalScore').innerHTML = "Your final score is: " + finalScore
 
 };
 
-//create variable to hold question #
-//based on variable, display question
+
+
 //click listener on all answers and will determine correctness based on data attribute
 //if answer is wrong, decrement time by 10
