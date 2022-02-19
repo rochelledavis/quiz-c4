@@ -8,6 +8,9 @@ var counter = 0;
 
 var timeLeft = 60;
 
+var finalScoreEl = document.querySelector('#finalScore')
+
+
 //function put in place to allow timer to count down when start-quiz is clicked
 function setTimer() {
     var timerInterval = setInterval(function() {
@@ -39,7 +42,13 @@ function displayQuestions() {
 function incrementQuestions() {
     questions[counter].style.display = "none";
     counter++
-    displayQuestions()
+
+    if (counter <= 4) {
+        displayQuestions()
+    } else {
+        endQuiz()
+    }
+    
 
 };
 
@@ -59,8 +68,18 @@ document.querySelectorAll('.answer').forEach(item => {
     });
   })
 
-//if time left === 0, then end quiz
+//if all questions have shown, then end quiz
 function endQuiz() {
+    console.log("the quiz has ended")
+    console.log(timeLeft)
+
+    if (timeLeft > 0) {
+        clearInterval(timeLeft)
+    }
+
+    var finalScore = timeLeft
+    questions.style.display = "none"
+    finalScoreEl.style.display = "block"
 
 };
 

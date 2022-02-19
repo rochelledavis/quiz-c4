@@ -33,7 +33,7 @@ section {
 }
 
 button {
-    font-size: xx-large;
+    font-size: large;
 }
 
 .questions {
@@ -41,3 +41,7 @@ button {
     margin: auto;
     align-items: center;
 } 
+
+#finalScore {
+    display: none;
+}
