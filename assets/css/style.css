@@ -8,13 +8,21 @@ nav {
 
 li {
     font-size: large;
-    background-color: blueviolet;
-    background-size: cover;
+    background-color: rgb(78, 94, 236);
+    width: 25%;
+    margin-right: 30px;
+    line-height: 30px;
+    list-style: none;
+    border: 2px black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 4px;
 }
 
 section {
     margin: auto;
     padding: 20px;
+    align-content: center;
 }
 
 .pre-quiz {
@@ -30,4 +38,6 @@ button {
 
 .questions {
     display: none;
+    margin: auto;
+    align-items: center;
 } 

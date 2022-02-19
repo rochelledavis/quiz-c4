@@ -7,6 +7,7 @@ var questions = document.querySelector('.questions')
 
 var timeLeft = 60;
 
+//function put in place to allow timer to count down when start-quiz is clicked
 function setTimer() {
     var timerInterval = setInterval(function() {
         timeLeft--;
@@ -15,14 +16,18 @@ function setTimer() {
         if (timeLeft === 0) {
             clearInterval(timerInterval);
             timerEl.innerHTML = "Time is up!"
+            
+            endQuiz()
         }
     }, 1000);
 
     displayQuestions()
 };
 
+//Click to start timer
 document.getElementById("start-quiz").addEventListener("click", setTimer);
 
+//function that enables question to display and calls on the question to increment
 function displayQuestions() {
     preQuiz.style.display = "none";
     questions.style.display = "block";
@@ -30,36 +35,24 @@ function displayQuestions() {
     incrementQuestions()
 }
 
+//function to allow questions to increment
 function incrementQuestions() {
 
-}
-// startQuizEl.addEventListener("click", function(event) {
-//     timeLeft = 60;
+};
 
-//     var downloadTimer = setInterval(function () {
-//         document.getElementById("#countdown").innerHTML = timeLeft + " "+"seconds remaining";
+//listens for a click to check for answer accuracy and displays whether the answer is right or wrong and decrements time by 10 if wrong
+listItemEl.addEventListener("click", function(event) {
+    var answer = event.target;
 
-//         timeLeft -= 1;
-//         if(timeLeft <= 0) {
-//             clearInterval(downloadTimer);
-//             document.getElementById("#countdown").innerHTML = "Time is up"
-//         }
-//     }, 1000);
-//     console.log(countdown);
-// });
+    if (answer.dataset.answer = "Correct!") {
+        answer.innerHTML = answer.dataset.answer
+    }
+});
 
-//console.log(countdown)
-
-// function countdown() {
-//     var timeLeft = 60;
-// }
-
-//countdown ()
-
-
-//every second, decrement by 1
 //if time left === 0, then end quiz
+function endQuiz() {
 
+};
 
 //create variable to hold question #
 //based on variable, display question
