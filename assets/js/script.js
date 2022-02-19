@@ -107,3 +107,20 @@ function saveScore() {
     localStorage.setItem("finalScore", JSON.stringify(highScores));
 
 }
+
+var displayScores = function() {
+    var savedScores = localStorage.getItem("highScores");
+
+    savedScores = JSON.parse(savedScores);
+
+    for (var i = 0; i < savedScores.length; i++) {
+        var li = document.createElement("li");
+        li.textContent = finalScore.initials;
+        createScoreEl(savedScores[i]);
+        li.appendChild(textContent)
+
+    }
+
+
+    
+}
