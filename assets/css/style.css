@@ -1,11 +1,33 @@
-header {
+
+nav {
     margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 li {
-    background-color: aqua;
+    font-size: large;
+    background-color: blueviolet;
+    background-size: cover;
 }
 
-div {
+section {
     margin: auto;
+    padding: 20px;
 }
+
+.pre-quiz {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    font-size: x-large;
+}
+
+button {
+    font-size: xx-large;
+}
+
+.questions {
+    display: none;
+} 

@@ -4,50 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" src="assets/css/style.css"
+    <link rel="stylesheet" href="/assets/css/style.css">
     <title>JavaScript Quiz</title>
 </head>
 <body>
-    <header>JavaScript Quiz</header>
+    <nav>
+        <h3 href="highscore.html">View Highscores</h3>
+        <h1>JavaScript Quiz</h1>
+        <h3 id="countdown">Time remaining: 60</h3>
+    </nav>
+    <div class="pre-quiz">
+        <p>Try your knowledge in JavaScript! When a question is answered incorrectly, you lose 10 seconds on the clock. Be sure to keep trying to be the person with the highest score!</p>
+        <button id="start-quiz">Start Quiz!</button>
+    </div>
     <section>
-        <div id="question1">
+        <div id="question1" class="questions">
             <h4>How do you create a function in JavaScript?</h4>
             <ul>
-                <li class="correct">"function myFunction()"</li>
-                <li class="wrong">"function:myFunction()"</li>
-                <li class="wrong">"function = myFunction"</li>
+                <li class="answer" data-answer="correct">"function myFunction()"</li>
+                <li class="answer" data-answer="wrong">"function:myFunction()"</li>
+                <li class="answer" data-answer="wrong">"function = myFunction"</li>
             </ul>
         </div>
-        <div id="question2">
+        <div id="question2" class="questions">
             <h4>How do you call a function named "myFunction"?</h4>
             <ul>
-                <li class="correct">"myFunction()"</li>
-                <li class="wrong">"call function myFunction()"</li>
-                <li class="wrong">"call myFunction()"</li>
+                <li class="answer" data-answer="correct">"myFunction()"</li>
+                <li class="answer" data-answer="wrong">"call function myFunction()"</li>
+                <li class="answer" data-answer="wrong">"call myFunction()"</li>
             </ul>
         </div>
-        <div id="question3">
+        <div id="question3" class="questions">
             <h4>How does a WHILE loop start?</h4>
             <ul>
-                <li class="correct">"while (i <= 10)"</li>
-                <li class="wrong">"while i = 1 to 10"</li>
-                <li class="wrong">"while (i <=10;i++)"</li>
+                <li class="answer" data-answer="correct">"while (i <= 10)"</li>
+                <li class="answer" data-answer="wrong">"while i = 1 to 10"</li>
+                <li class="answer" data-answer="wrong">"while (i <=10;i++)"</li>
             </ul>
         </div>
-        <div id="question4">
+        <div id="question4" class="questions">
             <h4>How does a FOR loop start?</h4>
             <ul>
-                <li class="correct">"for (i = 0; i <= 5; i++)"</li>
-                <li class="wrong">"for (i <= 5; i++)"</li>
-                <li class="wrong">"for (i = 0; i <= 5)"</li>
+                <li class="answer" data-answer="correct">"for (i = 0; i <= 5; i++)"</li>
+                <li class="answer" data-answer="wrong">"for (i <= 5; i++)"</li>
+                <li class="answer" data-answer="wrong">"for (i = 0; i <= 5)"</li>
             </ul>
         </div>
-        <div id="question5">
+        <div id="question5" class="questions">
             <h4>How do you add a comment in a JavaScript?</h4>
             <ul>
-                <li class="correct">"//This is a comment"</li>
-                <li class="wrong">"'This is a comment"</li>
-                <li class="wrong">"<--!This is a comment-->"</li>
+                <li class="answer" data-answer="correct">"//This is a comment"</li>
+                <li class="answer" data-answer="wrong">"'This is a comment"</li>
+                <li class="answer" data-answer="wrong">"<--!This is a comment-->"</li>
             </ul>
         </div>
     </section>
