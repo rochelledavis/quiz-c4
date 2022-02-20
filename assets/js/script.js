@@ -12,6 +12,8 @@ var finalScoreEl = document.querySelector('#finalScore')
 
 var highScores = JSON.parse(localStorage.getItem('finalScore')) || []
 
+var highScoreDisplay = document.querySelector('#display-highscore')
+
 
 //function put in place to allow timer to count down when start-quiz is clicked
 function setTimer() {
@@ -120,9 +122,25 @@ function displayScores() {
     for (var i = 0; i < savedScores.length; i++) {
         var li = document.createElement("li");
         li.textContent = savedScores[i].initials + " " + savedScores[i].score;
-        //savedScores.appendChild(li);
-        li.appendChild(savedScores)
-        //ol.appendChild(li);
-
+        document.getElementById("highScore").appendChild(li);
     }
+}
+
+document.getElementById("clear-highscore").addEventListener("click", removeScores);
+
+function removeScores() {
+    localStorage.clear();
+}
+
+document.getElementById("go-back").addEventListener("click", reset);
+
+function reset() {
+    highScoreDisplay.style.display = "none"
+    preQuiz.style.display = "block"
+}
+
+document.getElementById('view-highscore').addEventListener("click", viewHighScore)
+
+function viewHighScore() {
+    highScoreDisplay.style.display = "block"
 }
