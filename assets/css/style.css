@@ -45,3 +45,7 @@ button {
 #finalScore {
     display: none;
 }
+
+#display-highscore {
+    display: none;
+}

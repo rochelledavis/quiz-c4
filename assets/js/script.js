@@ -88,7 +88,7 @@ function endQuiz() {
             return
         }
         saveScore()
-        document.location.href = 'highscore.html'
+        
     })
 
     
@@ -106,21 +106,23 @@ function saveScore() {
 
     localStorage.setItem("finalScore", JSON.stringify(highScores));
 
+    displayScores()
+
 }
 
-var displayScores = function() {
-    var savedScores = localStorage.getItem("highScores");
+function displayScores() {
+    document.getElementById('finalScore').style.display = "none";
+    document.getElementById('display-highscore').style.display = "block";
+    var savedScores = localStorage.getItem("finalScore");
 
     savedScores = JSON.parse(savedScores);
 
     for (var i = 0; i < savedScores.length; i++) {
         var li = document.createElement("li");
-        li.textContent = finalScore.initials;
-        createScoreEl(savedScores[i]);
-        li.appendChild(textContent)
+        li.textContent = savedScores[i].initials + " " + savedScores[i].score;
+        //savedScores.appendChild(li);
+        li.appendChild(savedScores)
+        //ol.appendChild(li);
 
     }
-
-
-    
 }
